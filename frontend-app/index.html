@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coleta de Material Reciclável</title>
+  <!-- Adicionando o Bootstrap (versão online) para estilos mais avançados -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      margin: 10px 0;
+    }
+
+    input {
+      padding: 8px;
+      margin: 5px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      padding: 10px;
+      background-color: #28a745; /* Cor verde do Bootstrap */
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #218838; /* Cor escura do verde do Bootstrap */
+    }
+
+    #infoLocalColeta {
+      margin-top: 20px;
+      border-top: 1px solid #ccc;
+      padding-top: 20px;
+    }
+
+    #confirmationMessage {
+      color: #28a745; /* Cor verde do Bootstrap */
+      font-weight: bold;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Coleta de Material Reciclável</h1>
+  </header>
+
+  <main>
+    <h2>Agendar Coleta</h2>
+    <form id="coletaForm">
+      <div class="form-group">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="endereco">Endereço:</label>
+        <input type="text" id="endereco" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="quantidade">Quantidade:</label>
+        <input type="text" id="quantidade" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="tipoMaterial">Tipo de Material Reciclável:</label>
+        <input type="text" id="tipoMaterial" class="form-control" required>
+      </div>
+      <button type="button" onclick="agendarColeta()" class="btn btn-success">
+        Agendar Coleta <i class="fas fa-calendar-check"></i>
+      </button>
+    </form>
+
+    <div id="infoLocalColeta"></div>
+
+    <div id="confirmationMessage"></div>
+  </main>
+
+  <!-- Adicionando FontAwesome (versão online) para ícones -->
+  <script src="https://kit.fontawesome.com/8f6d7d31e9.js"></script>
+
+  <script>
+    function agendarColeta() {
+      const nome = document.getElementById('nome').value;
+      const endereco = document.getElementById('endereco').value;
+      const quantidade = document.getElementById('quantidade').value;
+      const tipoMaterial = document.getElementById('tipoMaterial').value;
+
+      // Verifica se a quantidade é um número
+      if (!isNaN(parseFloat(quantidade)) && isFinite(quantidade)) {
+        // Aqui você faria a chamada para o backend para agendar a coleta
+        // Em seguida, atualize a UI com as informações do local de coleta
+
+        // Exemplo: Simular chamada para o backend (substitua por sua lógica real)
+        setTimeout(() => {
+          const infoLocalColeta = document.getElementById('infoLocalColeta');
+          infoLocalColeta.innerHTML = `<h3>Informações sobre o Local de Coleta:</h3>
+                                       <p>${nome} está agendado para a coleta em ${endereco}. Quantidade: ${quantidade}. Tipo de Material: ${tipoMaterial}.</p>`;
+        }, 1000);
+      } else {
+        alert("A quantidade deve ser um número válido.");
+      }
+    }
+  </script>
+
+</body>
+</html>
